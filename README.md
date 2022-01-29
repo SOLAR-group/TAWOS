@@ -213,7 +213,7 @@ We also intend to provide a graphical user interface based on Java to allow user
 
 We invite potential users of the dataset to join our effort in growing and enriching this dataset, in order to open door for novel research avenues.
 
-You can contribute by extending the dataset both in depth and breadth, by adding new projects, as well as new features.
+You can contribute by extending the dataset both in depth and breadth, by adding new projects, as well as new features. The database schema creation script is available [here](TAWOS_Database_Schema_Creation_Script.sql).
 
 Please create an Issue and inform us of any problem with the data, or create pull requests to add your contribution to the dataset.
 
