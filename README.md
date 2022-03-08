@@ -4,7 +4,7 @@
 
 ## Further Details and Citation Information
 
-This dataset is described and presented in the paper "**A Versatile Dataset of Agile Open Source Software Projects**" authored by [Vali Tawosi](https://vtawosi.github.io/), [Afnan Al-Subaihin](https://afnan.ws/), [Rebecca Moussa](https://scholar.google.com/citations?user=fdm9f9gAAAAJ&hl=en) and [Federica Sarro](http://www0.cs.ucl.ac.uk/staff/F.Sarro/). It is currently under review and the citation information will be made available upon accentance.
+This dataset is described and presented in the paper "**A Versatile Dataset of Agile Open Source Software Projects**" authored by [Vali Tawosi](https://vtawosi.github.io/), [Afnan Al-Subaihin](https://afnan.ws/), [Rebecca Moussa](https://scholar.google.com/citations?user=fdm9f9gAAAAJ&hl=en) and [Federica Sarro](http://www0.cs.ucl.ac.uk/staff/F.Sarro/). It has been accepted for presentation at the [MSR 2022](https://conf.researchr.org/home/msr-2022) conference and the citation information will be made available soon.
 
 ## Installation Instructions
 
@@ -27,7 +27,7 @@ If you are interested in a graphical user interface, you can also install [MySQL
 
 ### Contents
 
-The dataset currently contains 486,869 issues from 44 open-source projects selected from 13 public Jira repositories. 
+The dataset currently contains 508,963 issues from 44 open-source projects selected from 13 public Jira repositories. 
 
 
 |	Repository		|	Project Name					|	Project Key	|
