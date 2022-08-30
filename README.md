@@ -14,7 +14,7 @@ To start using the dataset, follow these instructions:
 
 **Step 1:** [Install MySQL](https://dev.mysql.com/doc/refman/8.0/en/installing.html) database management system.
 
-**Step 2:** Download and unzip the dataset (.sql file) from [here](https://rdr.ucl.ac.uk/articles/dataset/The_TAWOS_dataset/19085834).
+**Step 2:** Download and unzip the dataset (.sql file) from [here]() *the link is removed temporarily for some modification and will be restored soon*.
 
 **Step 3:** Setup the database using the downloaded file:
 
