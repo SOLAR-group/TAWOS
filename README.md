@@ -1,10 +1,53 @@
-# The TAWOS Dataset (V. 1.0)
+# The TAWOS Dataset (V. 1.1)
 
 :peacock: TAWOS (Peacock in _Farsi_ and _Arabic_) is a dataset of agile open-source software project issues mined from Jira repositories including many descriptive features (raw and derived). The dataset aims to be all-inclusive, making it well-suited to several research avenues, and cross-analyses therein. 
 
 ## Further Details and Citation Information
 
-This dataset is described and presented in the paper "**A Versatile Dataset of Agile Open Source Software Projects**" authored by [Vali Tawosi](https://vtawosi.github.io/), [Afnan Al-Subaihin](https://afnan.ws/), [Rebecca Moussa](https://scholar.google.com/citations?user=fdm9f9gAAAAJ&hl=en) and [Federica Sarro](http://www0.cs.ucl.ac.uk/staff/F.Sarro/). It has been accepted for presentation at the [MSR 2022](https://conf.researchr.org/home/msr-2022) conference and the citation information will be made available soon.
+This dataset is described and presented in the paper "**A Versatile Dataset of Agile Open Source Software Projects**" authored by [Vali Tawosi](https://vtawosi.github.io/), [Afnan Al-Subaihin](https://afnan.ws/), [Rebecca Moussa](https://scholar.google.com/citations?user=fdm9f9gAAAAJ&hl=en) and [Federica Sarro](http://www0.cs.ucl.ac.uk/staff/F.Sarro/) published in the Proceedings of the [19th International Conference on Mining Software Repositories (MSR 2022)](https://ieeexplore.ieee.org/document/9796320).
+
+Bibtext:
+```
+@INPROCEEDINGS{9796320,
+  author={Tawosi, Vali and Al-Subaihin, Afnan and Moussa, Rebecca and Sarro, Federica},
+  booktitle={2022 IEEE/ACM 19th International Conference on Mining Software Repositories (MSR)}, 
+  title={A Versatile Dataset of Agile Open Source Software Projects}, 
+  year={2022},
+  pages={707-711},
+  doi={10.1145/3524842.3528029}}
+
+```
+
+
+## Terms of Use
+
+By downloading and using the TAWOS dataset, you agree to the following terms and conditions:
+
+1. This dataset is published to be used by researchers for research purposes only. Thus, any usage of this dataset for purposes that may cause harm to the contributing users or project owners should be prohibited. The potential user of the dataset shall consider all potential ethical issues arising from the use of this data and refrain from performing analysis or processing that may result in any harm.
+
+2. The data is cleared out of any personally identifiable information. Although there might still exist possible ways to identify the individual contributors by tracing the information back to its source, this is strongly discouraged. 
+
+3. All the projects included in the TAWOS dataset are publicly available online under different open-source licences. Hence, the TAWOS dataset itself is also shared here under an open-source initiative-approved license, specifically Apache License, Version 2.0. 
+
+## Licence
+
+Apache License, Version 2.0.
+```
+Copyright (c) 2022 The TAWOS Dataset.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
+
 
 ## Installation Instructions
 
@@ -14,7 +57,7 @@ To start using the dataset, follow these instructions:
 
 **Step 1:** [Install MySQL](https://dev.mysql.com/doc/refman/8.0/en/installing.html) database management system.
 
-**Step 2:** Download and unzip the dataset (.sql file) from [here]() *the link is removed temporarily for some modification and will be restored soon*.
+**Step 2:** Download and unzip the dataset (.sql file) from [10.5522/04/19085834](https://doi.org/10.5522/04/19085834.v2).
 
 **Step 3:** Setup the database using the downloaded file:
 
@@ -27,7 +70,7 @@ If you are interested in a graphical user interface, you can also install [MySQL
 
 ### Contents
 
-The dataset currently contains 508,963 issues from 44 open-source projects selected from 13 public Jira repositories. 
+The dataset currently contains 458,232 issues from 39 open-source projects selected from 12 public Jira repositories.\* 
 
 
 |	Repository		|	Project Name					|	Project Key	|
@@ -71,20 +114,24 @@ The dataset currently contains 508,963 issues from 44 open-source projects selec
 |	Sonatype		|	Nexus							|	NEXUS		|
 |	Spring			|	DataCass						|	DATACASS	|
 |	Spring			|	XD								|	XD			|
-|	Talendforge		|	Talend Big Data					|	TBD			|
+<!-- |	Talendforge		|	Talend Big Data					|	TBD			|
 |	Talendforge		|	Talend Data Management			|	TMDM		|
 |	Talendforge		|	Talend Data Preparation			|	TDP			|
 |	Talendforge		|	Talend Data Quality				|	TDQ			|
 |	Talendforge		|	Talend Enterprise Service Bus	|	TESB		|
+ -->
+
+ \* Version 1.0 of the dataset included an additional repository with 5 projects. Since that repository was removed from the public domain, it has also been removed from the TAWOS dataset version 1.1.
 
 ### Database Structure
 
 The database is structured to facilitate custom sampling and future extensions:
 
+<sub><sub>The dataset structure has no change since version 1.0</sub></sub>
 ![entity-relationship diagram](Entity_Relationship_Diagram_V1.png)
 
 The central entity is `Issue`, which stores several extracted, derived, and computed features for each issue.
-Folliwng is a brief summary of each of the included properties which can be either raw or derived.
+Following is a brief summary of each of the included properties which can be either raw or derived.
 
 #### Raw Attributes
 
@@ -97,11 +144,12 @@ Every issue may have connections to other issues which indicate relatedness (for
 - name = 'Supersede', Description = 'supersedes', Direction = 'OUTBOUND'
 
 ##### Comment
-This includes every comment posted on the issue, including discussions, with the creation time and author id.
+This includes every comment posted on the issue, including discussions, with the creation time and author id. All personally identifiable information about the contributors have been replaced by \<USER\> or \<EMAIL\> tags inside the comments.
 
 ##### Change_Log
 Itemised and chronologically ordered changes made on an issue's attributes are stored in this table.
 Every change on an attribute by a user is stored as a record, including the previous and new value for the attribute. 
+All personally identifiable information about the contributors (author of the change or subject of the change if it was a user and all references inside changed text fields like description and comment) have been replaced by \<USER\> or \<EMAIL\> tags inside the comments.
 
 ##### Component
 Each software product is composed of one or more components. This table stores the information about the components for each project. It has a many to many relationship with `Issue` (via the `Issue_Components` table), which means one issue may be related to more than one component and one component may have multiple issues.
@@ -112,11 +160,12 @@ This information include the name, description, and release date of the version,
 Affected version is the version where a bug or problem was found and Fix version is the one where the feature is released or a bug is fixed.
 
 ##### Sprint
-The Sprint table stores the information about the iterations that occured during the development of the software so far.
+The Sprint table stores the information about the iterations that occurred during the development of the software so far.
 Connection with the Issue table records the issues delivered in an specific Sprint. This table includes `State`, `Start_Date`, `End_Date`, `Activated_Date`, and `Completion_Date` of each Sprint.
 
 ##### User
-This table stores the unique users who interacted within projects included in the dataset. The users, depending on thier form of contribution, can take different roles in the form of forieng key names in other tables: The creator of the issue (`Creator_ID` in the `Issue` table), the author of a comment (`Author_ID` in the `Comment` table) or change (`Author_ID` in `the Change_Log` table), or the development team members (`Assignee_ID` and `Reporter_ID` in the `Issue` table).
+This table stores the unique users who interacted within projects included in the dataset. The users, depending on their form of contribution, can take different roles in the form of foreign key names in other tables: The creator of the issue (`Creator_ID` in the `Issue` table), the author of a comment (`Author_ID` in the `Comment` table) or change (`Author_ID` in `the Change_Log` table), or the development team members (`Assignee_ID` and `Reporter_ID` in the `Issue` table).
+The User ID provided in the database is a database generated key and has no relation with the User's ID on the original repository.
 
 ##### Project and Repository
 These two tables store information of the repositories and projects included in the Database.
@@ -125,6 +174,7 @@ These two tables store information of the repositories and projects included in 
 
 ##### Issue/Comment Description Text and Code
 The `Description` field holds the long description of the user story or bug report which can contain natural text interleaved with code snippets or stack-traces. To facilitate processing, we separate the code snippets/stack traces and the natural text describing the issue into the `Description_Code` and `Description_Text` fields respectively. We maintain the original description in the `Description` field. Same is done for the `Comment` field from the `Comment` table.
+All personally identifiable information about the contributors have been replaced by \<USER\> or \<EMAIL\> tags inside the `Description` and `Description_Text` fields.
 
 ##### Resolution Time
 The field `Resolution_Time_Minutes` stores the time span (in minutes) between when an issue is marked for the first time as `In Progress` and when it is marked as `Resolved`. This period can be considered as an approximation of the time taken by the development team to resolve the issue. 
@@ -197,7 +247,11 @@ Furthermore, to extract code snippets and stack traces from the description and 
 
 ## Studies Using TAWOS Data
 
+- Vali Tawosi, Rebecca Moussa, and Federica Sarro, "[On the Relationship Between Story Point and Development Effort in Agile Open-Source Software](https://solar.cs.ucl.ac.uk/pdf/tawosi2022esem.pdf)", 16th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM, 2022). See [Scripts and Data](https://github.com/SOLAR-group/SPvsDevelopmentEffort)
+
+
 - Vali Tawosi, Afnan Al-Subaihin, and Federica Sarro, "[Investigating the Effectiveness of Clustering for Story Point Estimation](https://solar.cs.ucl.ac.uk/pdf/tawosi2022saner.pdf)", 29th IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER, 2022). See [Scripts and Data](https://github.com/SOLAR-group/LHC-SE)
+
 
 - Vali Tawosi, Rebecca Moussa, and Federica Sarro, "[Deep Learning for Agile Effort Estimation Have We Solved the Problem Yet?](https://arxiv.org/abs/2201.05401)" arXiv preprint arXiv:2201.05401 (2022).
 
@@ -215,9 +269,12 @@ We invite potential users of the dataset to join our effort in growing and enric
 
 You can contribute by extending the dataset both in depth and breadth, by adding new projects, as well as new features. The database schema creation script is available [here](TAWOS_Database_Schema_Creation_Script.sql).
 
-Please create an Issue and inform us of any problem with the data, or create pull requests to add your contribution to the dataset.
+Please create an Issue here on GitHub and inform us of any problem with the data, or create pull requests to add your contribution to the dataset.
 
 Thank You!
+
+## Last update
+7 October 2022
 
 ## Contacts
 Vali Tawosi vali.tawosi@ucl.ac.uk
