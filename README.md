@@ -57,7 +57,7 @@ To start using the dataset, follow these instructions:
 
 **Step 1:** [Install MySQL](https://dev.mysql.com/doc/refman/8.0/en/installing.html) database management system.
 
-**Step 2:** Download and unzip the dataset (.sql file) from [10.5522/04/19085834](https://doi.org/10.5522/04/19085834.v2).
+**Step 2:** Download and unzip the dataset (.sql file) from [10.5522/04/21308124](http://doi.org/10.5522/04/21308124).
 
 **Step 3:** Setup the database using the downloaded file:
 
@@ -127,7 +127,7 @@ The dataset currently contains 458,232 issues from 39 open-source projects selec
 
 The database is structured to facilitate custom sampling and future extensions:
 
-<sub><sub>The dataset structure has no change since version 1.0</sub></sub>
+<sub><sub>The dataset structure has not changed since version 1.0</sub></sub>
 ![entity-relationship diagram](Entity_Relationship_Diagram_V1.png)
 
 The central entity is `Issue`, which stores several extracted, derived, and computed features for each issue.
