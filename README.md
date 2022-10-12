@@ -2,6 +2,9 @@
 
 :peacock: TAWOS (Peacock in _Farsi_ and _Arabic_) is a dataset of agile open-source software project issues mined from Jira repositories including many descriptive features (raw and derived). The dataset aims to be all-inclusive, making it well-suited to several research avenues, and cross-analyses therein. 
 
+The TAWOS dataset is available to download from [10.5522/04/21308124](http://doi.org/10.5522/04/21308124). Please read the [terms of use](#terms-of-use) before downloading and using the dataset.
+
+
 ## Further Details and Citation Information
 
 This dataset is described and presented in the paper "**A Versatile Dataset of Agile Open Source Software Projects**" authored by [Vali Tawosi](https://vtawosi.github.io/), [Afnan Al-Subaihin](https://afnan.ws/), [Rebecca Moussa](https://scholar.google.com/citations?user=fdm9f9gAAAAJ&hl=en) and [Federica Sarro](http://www0.cs.ucl.ac.uk/staff/F.Sarro/) published in the Proceedings of the [19th International Conference on Mining Software Repositories (MSR 2022)](https://ieeexplore.ieee.org/document/9796320).
